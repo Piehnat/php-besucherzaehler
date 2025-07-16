@@ -1,32 +1,30 @@
-# Einfacher PHP Besucherzähler
+# Simple PHP Visitor Counter
 
-Dieses kleine PHP-Skript ermöglicht das Zählen von Besuchern auf einer Website, indem es die Besucherzahl in einer Textdatei (count.txt) speichert. Dabei wird die Datei mittels flock() gesperrt, um Probleme bei gleichzeitigen Zugriffen (Race Conditions) zu vermeiden.
+This small PHP script enables counting visitors on a website by storing the visitor count in a text file (`count.txt`). The file is locked using `flock()` to avoid issues with simultaneous access (race conditions).
 
 ## Features
 
-- Einfaches PHP-Skript, leicht in bestehende Websites integrierbar  
-- Vermeidet Schreibkonflikte durch Datei-Sperre  
-- Keine Datenbank notwendig, rein dateibasiert  
-- Geeignet für kleine bis mittlere Websites und Blogs (z. B. HTMLy)
+- Simple PHP script, easy to integrate into existing websites  
+- Prevents write conflicts through file locking  
+- No database required, purely file-based  
+- Suitable for small to medium websites and blogs (e.g. HTMLy)
 
 ## Installation
 
-1. Lade die Dateien `counter.php` und eine leere Datei `count.txt` auf deinen Webspace (z. B. Strato).  
-2. Stelle sicher, dass `count.txt` beschreibbar ist (z. B. Dateiberechtigungen anpassen).  
-3. Binde den Zähler per PHP in deine Website ein, z. B.:
+1. Upload the files `counter.php` and an empty file `count.txt` to your webspace (e.g. Strato).  
+2. Make sure `count.txt` is writable (e.g. adjust file permissions).  
+3. Include the counter in your website using PHP, e.g.:
+
 <?php include('pfad/zu/counter.php'); ?>
 
-4. Besuche deine Website und der Zähler zählt die Besucher automatisch hoch.
+4. Visit your website and the counter will automatically increment the visitor count.
 
-## Hinweise
+## Notes
 
-- Die `count.txt` sollte idealerweise außerhalb des Webroots liegen oder per `.htaccess` geschützt werden, damit niemand die Datei direkt verändern kann.  
-- Der Zähler zählt jeden Seitenaufruf, inklusive Bots und Reloads. Für differenzierte Zählungen müssten zusätzliche Mechanismen (Cookies, User-Agent-Filter) ergänzt werden.
+- Ideally, `count.txt` should be located outside the web root or protected by `.htaccess` so that nobody can directly modify the file.  
+- The counter counts every page request, including bots and reloads. For more refined counting, additional mechanisms (cookies, user-agent filtering) would need to be added.
 
-## Lizenz
+## License
 
-MIT License – siehe LICENSE-Datei.
+MIT License – see LICENSE file.
 
----
-
-**Dieses Projekt entstand im Rahmen meiner Erfahrungen mit PHP-Programmierung und Webentwicklung. Bei Fragen oder Verbesserungsvorschlägen freue ich mich über Issues und Pull Requests.**
